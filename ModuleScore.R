@@ -24,8 +24,7 @@ ifn <- list(c("SIGLEC1","RABGAP1L","IFI27","CADM1","RSAD2","MX1","SERPING1"))
 bac <- list(c("SMPD1","CD44","SERPING1","SPI1","HERC1","MCTP1","FOLR3","CFAP45",
               "PRF1","CTBP1","HLA-DRB1","ARL1","OAS3","ZER1", "IFIT2","IFITM1"))
 viral_h <- list(c("IFI44L", "IFI27", "RSAD2", "SIGLEC1", "IFIT1", "ISG15"))
-bac2 <- list(c("HK3", "TNIP1", "GPAA1", "CTSB"))
-sepsis <- list(c("PLAC8", "CLU", "RETN", "CD63", "ALOX5AP", "SEC61G", "TXN", "MT1X"))
+
 
 # Identify monocyte clusters
 
@@ -42,14 +41,14 @@ pbmc_meta <- misc.mono[[]]
 
 df_myeloid <- data.frame('sample' = pbmc_meta$sample_id, 'score' = pbmc_meta$Viral_score_up1, 
                          'cluster' = pbmc_meta$annotation, 'condition' = pbmc_meta$condition)
-write.csv(df_myeloid, file = "AUCell/sepsis_mono_module_score.csv") #use to calculate pvalue 
+write.csv(df_myeloid, file = "ModuleScore/viral1_module_score_myeloid_spec.csv") #use to calculate pvalue 
 
 
 #
 library(dplyr)
 library(ggplot2)
 
-cyto <- read.csv("Sheets/sepsis_mono_module_score.csv")
+cyto <- read.csv("Sheets/viral1_module_score_myeloid_spec.csv")
 
 names <- unique(cyto$sample)
 means <- data.frame("name" = rep(NA,38), "value" = rep(NA,38))
@@ -107,7 +106,7 @@ plot1 <- ggplot(means, aes(x = condition, y = value)) +
   geom_jitter(data=means_severe, colour ="#c94040",  size = 0.5, width = 0.1)+
   geom_jitter(data = means2, aes(colour = factor(condition, level = level_order)), size = 0.5, width = 0.1) +
   scale_color_manual(values = cols) +
-  ggtitle("Sepsis associated monocyte sig") +
+  ggtitle("Anti-viral signature") +
   xlab("") +
   theme_classic(base_size = 8) +
   theme(axis.text.x = element_text(angle = 45, vjust = 0.9, hjust=1, size = 8, color = "black"),
@@ -117,14 +116,6 @@ plot1 <- ggplot(means, aes(x = condition, y = value)) +
 
 plot1
 
-ggsave(plot1, file = "Fig2_viral_bac_fig/Sepsis_monocyte_module_Hacohen.pdf", height = 2, width =3)
-
-
-
-
-
-
-
-## AUCell
+ggsave(plot1, file = "Fig2_viral_bac_fig/Lydon_viral_module_score_myeloid_spec.pdf", height = 2, width =3)
 
 
