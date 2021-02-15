@@ -1,16 +1,18 @@
 Anjali Ramaswamy
-Ramaswamy et al. 2021
+Lucas Lab
 2/10/2021
 
 Scripts for performing PBMC clustering, sub-clustering of myeloid, T.NK cells, and B cells. Also included are scripts for:
+GEX and ADT:
 - SingleR and ADT (antibody dependent tag) UMAP overlay
-- Performing BCR and TCR analyses 
 - Performing FindMarkers DEG analysis and heatmap generation
 - ModuleScore signature scoring and AUCell signature enrichment
 - Plotting specific genes and signatures
 - EBV and CMV alignment
 - Connectome analysis
 
+Antigen receptor analysis:
+- Performing BCR and TCR analyses 
 
 R packages:
 
