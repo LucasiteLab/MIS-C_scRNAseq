@@ -469,5 +469,11 @@ ref2_markers
 
 write.csv(ref2_markers, file = "cluster_markers_pbmc/markers_dim30_2ref_regressed_wo112_clean.csv")
 
+  
+# Sample Composition
+  # This feeds into cell type distribution plots
+cluster_prop <- table(Idents(misc.cluster), misc.cluster$orig.ident) #just the cells
+
+write.csv(cluster_prop, file = "sample_full_integrated_pbmc_wo112.csv")
 
 
