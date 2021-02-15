@@ -1,4 +1,4 @@
-# T and NK subclustering
+# B subclustering and T-B correlation
 
 The B cell UMAP and subsequent analysis (e.g.assessing gene expression or BCR analysis with annotated clusters) can be done once the subclustering Seurat object is made. 
 
