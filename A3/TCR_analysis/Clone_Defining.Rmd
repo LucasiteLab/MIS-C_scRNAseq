@@ -1,0 +1,107 @@
+---
+title: "Clone Defining"
+author: "Ningshan Li"
+date: "2020/8/29"
+output:
+  html_notebook:
+    code_folding: hide
+    fig_caption: yes
+    highlight: tango
+    number_sections: yes
+    theme: united
+    toc: yes
+    toc_depth: 6
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE, cache = TRUE, warning = FALSE, message = FALSE, results='hold', cache.lazy = FALSE)
+knitr::opts_knit$set(eval.after = 'fig.cap', dev = c('png', 'postscript'))
+
+library(dplyr)
+
+home.dir <- 'C:/Users/hill103/Documents/GitHub/Yale-MISC-PBMC/RawData'
+project.folders <- c('lucas_filtered', 'ha_filtered', 'c_filtered', 'covid_filtered')
+output.folders <- c('lucas_final', 'ha_final', 'c_final', 'covid_final')
+```
+
+# Background
+In this note, we define clones based on the result of *changeo*, and add a column named *clone* to indicate the clonal ID. The new result files will directly save into a new folder
+
+# Clone Defining
+## Define a function to process one file
+
+```{r define function}
+define_clone <- function (one_folder, output_folder) {
+  # read files under this folder
+  # result is a list
+  tcrb_df <- read.table(file = file.path(one_folder, 'filtered_contig_heavy_productive-T.tsv'), header = TRUE, sep = '\t')
+  tcra_df <- read.table(file = file.path(one_folder, 'filtered_contig_light_productive-T.tsv'), header = TRUE, sep = '\t')
+  tcr_df <- rbind(tcrb_df, tcra_df)
+  
+  # assign clonal ID based on hashing
+  tcrb_assignment_df <- tcrb_df %>% 
+    filter(locus == "TRB") %>%
+    group_by(sequence_alignment) %>%
+    summarize(CLONE = 1) %>% ungroup() %>% 
+    mutate(CLONE_ORIGINAL = row_number()) %>%
+    select(sequence_alignment, CLONE_ORIGINAL)
+  
+  tcra_assignment_df <- tcra_df %>%
+    filter(locus == "TRA") %>%
+    group_by(sequence_alignment) %>%
+    summarize(CLONE = 1) %>% ungroup() %>%
+    mutate(CLONE_TCRA = row_number()) %>%
+    select(sequence_alignment, CLONE_TCRA)
+  
+  # match the clonal ID with cell barcode
+  tcrb_clone <- tcrb_df %>%
+    left_join(tcrb_assignment_df, by="sequence_alignment") %>%
+    select(cell_id, CLONE_ORIGINAL)
+  
+  tcra_clone <- tcra_df %>%
+    left_join(tcra_assignment_df, by="sequence_alignment") %>%
+    select(cell_id, CLONE_TCRA)
+  
+  # combine clonal ID from beta and alpha chain
+  tcr_clone_df <- tcr_df %>%
+    left_join(tcrb_clone, by="cell_id") %>%
+    left_join(tcra_clone, by="cell_id") %>%
+    mutate(clone = paste(CLONE_ORIGINAL, CLONE_TCRA, sep = ","))
+  
+  # save result
+  tcr_clone_df <- subset(tcr_clone_df, select = -c(CLONE_ORIGINAL, CLONE_TCRA))
+  dir.create(output_folder, showWarnings = F)
+  write.table(tcr_clone_df, file.path(output_folder, "filtered_contig_combined_productive-T.tsv"), sep = "\t", quote = F, row.names = F)
+  
+  # return cell count and clone count
+  return(c(length(unique(tcr_clone_df$cell_id)), length(unique(tcr_clone_df$clone))))
+}
+```
+
+## Iterate all datasets
+
+```{r begin processing}
+output = data.frame(matrix(ncol = 3, nrow = 0, dimnames = list(NULL, c("sample", "cell count", "clone count"))))
+
+for (i in 1:length(project.folders)) {
+  input.folder <- file.path(home.dir, project.folders[i])
+  output.folder <- file.path(home.dir, output.folders[i])
+  dir.create(output.folder, showWarnings = F)
+  
+  child.folders <- list.dirs(path = input.folder, full.names = F, recursive = F)
+  print(sprintf('Total %d samples under folder %s', length(child.folders), input.folder))
+  
+  # iterate all subfolders
+  for (f in child.folders) {
+    tmp <- define_clone(file.path(input.folder, f), file.path(output.folder, f))
+    output[nrow(output)+1, ] <- c(f, tmp)
+  }
+}
+```
+
+Clone defining result
+
+```{r show table, echo=F}
+knitr::kable(output)
+```
