@@ -1,0 +1,40 @@
+sample_id,condition,subject_id,timepoint,no_days_bt_hosp_ blood_draw,age,sex,lab,storage,blood shipped o/n,no_hrs_bt_draw_and_ficoll,orig.ident,age_group,bcr_library_id
+P1.1,MIS-C,P1,A,4,13,M,Lucas,fresh,N,less than 3,Y111-1,Pediatric,111-BCR_VHT_cellranger
+TSS,TSS,TSS,A,1,17,F,Lucas,fresh,N,less than 3,Y112-1,Pediatric,112-BCR_VHT_cellranger
+P2.1,MIS-C,P2,A,4,18,M,Lucas,fresh,N,less than 3,Y113-1,Pediatric,113-BCR_VHT_cellranger
+A.HD1,A.HD,A.HD1,,,32,M,Lucas,fresh,N,less than 3,HD_32M,Adult,32M-BCR_VHT_cellranger
+A.HD2,A.HD,A.HD2,,,35,F,Lucas,fresh,N,less than 3,HD_35F,Adult,35F-BCR_VHT_cellranger
+A.HD3,A.HD,A.HD3,,,36,M,Lucas,fresh,N,less than 3,HD_36M,Adult,36M-BCR_VHT_cellranger
+A.COV1.1,COVID19,A.COV1,A,2,70,M,Kaminski,cryo,N,,NS0A,Adult,NS0A_BCR_VHT_cellranger
+A.COV1.2,COVID19,A.COV1,B,6,70,M,Kaminski,cryo,N,,NS0B,Adult,NS0B_BCR_VHT_cellranger
+A.COV2.1,COVID19,A.COV2,A,3,53,F,Kaminski,cryo,N,,NS1A,Adult,NS1A_BCR_VHT_cellranger
+A.COV2.2,COVID19,A.COV2,B,6,53,F,Kaminski,cryo,N,,NS1B,Adult,NS1B_BCR_VHT_cellranger
+A.COV3.1,COVID19,A.COV3,A,3,62,M,Kaminski,cryo,N,,TS2A,Adult,TS2A_BCR_VHT_cellranger
+A.COV3.2,COVID19,A.COV3,B,15,62,M,Kaminski,cryo,N,,TS2B,Adult,TS2B_BCR_VHT_cellranger
+A.COV4.1,COVID19,A.COV4,A,2,56,F,Kaminski,cryo,N,,TS3A,Adult,TS3A_BCR_VHT_cellranger
+A.COV4.2,COVID19,A.COV4,B,6,56,F,Kaminski,cryo,N,,TS3B,Adult,TS3B_BCR_VHT_cellranger
+A.COV5.2,COVID19,A.COV5,B,12,62,M,Kaminski,cryo,N,,TP9B,Adult,TP9B_BCR_VHT_cellranger
+A.COV6.2,COVID19,A.COV6,B,8,62,M,Kaminski,cryo,N,,TP8B,Adult,TP8B_BCR_VHT_cellranger
+A.HD4,A.HD,A.HD4,,,69,M,Kaminski,cryo,N,,C27,Adult,NA
+A.HD5,A.HD,A.HD5,,,68,M,Kaminski,cryo,N,,C32,Adult,NA
+A.HD6,A.HD,A.HD6,,,68,M,Kaminski,cryo,N,,C33,Adult,NA
+A.HD7,A.HD,A.HD7,,,69,M,Kaminski,cryo,N,,C39,Adult,NA
+A.HD8,A.HD,A.HD8,,,27,F,Hafler,fresh,N,,HA5876,Adult,HA5876BLD_Bcell_VHT
+A.HD9,A.HD,A.HD9,,,28,F,Hafler,fresh,N,,HA5877,Adult,HA5877BLD_Bcell_VHT
+A.HD10,A.HD,A.HD10,,,28,F,Hafler,fresh,N,,HA5894,Adult,HA5894BLD-BCR_VHT
+A.HD11,A.HD,A.HD11,,,37,M,Hafler,fresh,N,,HA5952,Adult,HA5952BLD-BCR_VHT
+A.HD12,A.HD,A.HD12,,,38,F,Hafler,fresh,N,,HA5953,Adult,HA5953BLD-BCR_VHT
+A.HD13,A.HD,A.HD13,,,38,M,Hafler,fresh,N,,HA5957,Adult,HA5957BLD-BCR_VHT
+P3.1,MIS-C,P3,A,2,13,M,Lucas,cryo,N,less than 6,Y117-1,Pediatric,Y117-1-BCR_VHT_cellranger
+P4.1,MIS-C,P4,A,2,5,F,Lucas,cryo,N,less than 6,Y124-1,Pediatric,Y124-BCR_VHT_cellranger
+P5.1,MIS-C,P5,A,2,2.5,F,Lucas,cryo,N,less than 6,Y125-1,Pediatric,Y125-1-BCR_VHT_cellranger
+P6.1,MIS-C,P6,A,3,15,M,Lucas,cryo,N,less than 6,Y127-1,Pediatric,Y127-1-BCR_VHT_cellranger
+P7.1,MIS-C,P7,A,1,15,M,Lucas,cryo,Y,about 24,Y129-1,Pediatric,Y129-1-BCR_VHT_cellranger
+P3.2,MIS-C-R,P3,B,73,13,M,Lucas,cryo,N,less than 6,Y117-R,Pediatric,Y117_re-BCR_VHT_cellranger
+P4.2,MIS-C-R,P4,B,45,5,F,Lucas,cryo,N,less than 6,Y124-R,Pediatric,Y124-1_re-BCR_VHT_cellranger
+C.HD1,C.HD,C.HD1,,,13,F,Lucas,cryo,N,less than 6,NC-13F,Pediatric,NC-13F-BCR_VHT_cellranger
+C.HD2,C.HD,C.HD2,,,9,M,Lucas,cryo,Y,about 24,Y54-4,Pediatric,Y54-4-BCR_VHT_cellranger
+C.HD3,C.HD,C.HD3,,,16,F,Lucas,cryo,N,less than 6,Y70-4,Pediatric,Y70-4-BCR_VHT_cellranger
+C.HD4,C.HD,C.HD4,,,14,M,Lucas,cryo,Y,about 24,Y28-2,Pediatric,Y28-2-BCR_VHT_cellranger
+C.HD5,C.HD,C.HD5,,,6,M,Lucas,cryo,Y,about 24,Y28-4,Pediatric,Y28-4-BCR_VHT_cellranger
+C.HD6,C.HD,C.HD6,,,10,M,Lucas,cryo,Y,about 24,Y29-2,Pediatric,Y29-2-BCR_VHT_cellranger
