@@ -15,7 +15,7 @@ GEX and ADT:
 Antigen receptor analysis:
 - Performing BCR and TCR analyses 
 
-Relevant data and instructions are found in each subdirectory, and pre-processed data for pediatric samples and A.HD1-3 can be found at GSE166489 (e.g. filtered barcodes, genes, and matrix files, along with TCR/BCR filtered contig annotation files for each sample. 
+Relevant data and instructions are found in each subdirectory, and pre-processed data for pediatric samples and A.HD1-3 can be found at GSE166489 (e.g. filtered barcodes, genes, and matrix files, along with TCR/BCR filtered contig annotation files for each sample. A.HD4-A.HD7 along with all adult COVID-19 samples can be found corresponding to Unterman et al. medRxiv 2020. A.HD8-A.HD13 can be found corresponding to Pappalardo et al. Science Immunology 2020.
 
 A1 -- Figure 2, S2
 A2 -- Figure 3, S3
