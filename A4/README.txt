@@ -5,7 +5,7 @@ The B cell UMAP and subsequent analysis (e.g.assessing gene expression or BCR an
 
 - Dot plots for cluster annotation as in A1 (Dotplot_cluster_markers.R)
 
-Bcell_subclustering_umap.R ** Fig 5A
+Bcell_subclustering_umap.Rmd ** Fig 5A
 T-B_cell_correlation.R (for both scRNA-seq and flow- data included) ** Fig 5G
 Cell_type_distribution_bcell.R ** Fig 5C
 
