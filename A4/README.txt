@@ -3,11 +3,9 @@
 
 The B cell UMAP and subsequent analysis (e.g.assessing gene expression or BCR analysis with annotated clusters) is done starting from PBMC Seurat object. The pbmc_cluster_annotation.csv (main) provides the cluster number and annotation of each of our clusters in the PBMC seurat object. 
 
-- Dot plots for cluster annotation as in A1 (Dotplot_cluster_markers.R)
-
-Bcell_subclustering_umap.Rmd ** Fig 5A
+Ramaswamy2021_MIS-C_10x_Bcell_3182021 ** Fig 5A, 5B, 5C; Same analysis as on FASTgenomics (may start with processed Seurat objects found in that repository)
 T-B_cell_correlation.R (for both scRNA-seq and flow- data included) ** Fig 5G
-Cell_type_distribution_bcell.R ** Fig 5C
+
 
 
 # BCR Analysis
@@ -31,7 +29,7 @@ ggpubr v0.4.0
 
 To reproduce analyses:
 -Run the Immcantation docker image
--Run processData.sh to align BCR sequences to IMGT reference and convert to AIRR format.
+-Run processData.sh to align BCR sequences to IMGT reference and convert to AIRR format. (filtered_contig_annotations.csv ad filtered_contig.fasta are can be generated using CellRanger using raw data in GSE166489)
 -Run combineData.R to compile data into a single table with appropriate metadata
 -Run cloneGermline.R to group BCRs into clonal clusters and reconstruct clonal germlines
 -Run analysis.R to perform analyses and generate figures*.
